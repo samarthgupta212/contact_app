@@ -1,0 +1,4 @@
+{
+  "presets": ["es2015"],
+  "plugins": ["babel-polyfill", "transform-class-properties", "transform-object-rest-spread", "transform-promise-to-bluebird"]
+}

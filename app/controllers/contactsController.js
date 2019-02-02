@@ -107,7 +107,7 @@ const show = async (req, res) => {
 
 const remove = async (req, res) => {
   try {
-    const { contactId } = req.body;
+    const { contactId } = req.params;
     const userId = req.userId;
     const user = await User.findById(userId);
     if (!user) throw new Error('Invalid User');

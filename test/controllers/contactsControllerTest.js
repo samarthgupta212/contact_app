@@ -137,4 +137,33 @@ describe('Contacts Controller', () => {
       res.statusCode.should.be.eql(200);
     });
   });
+
+  describe('Delete', async () => {
+    it('Should throw Error if token is not passed', async () => {
+      var res = await request({
+        method: 'DELETE',
+        url: getTestURL(`/api/contacts/123`),
+        json: true,
+      });
+
+      res.statusCode.should.be.eql(403);
+    });
+
+    it('Should delete contact', async () => {
+      let contact = await Contact.findOne({});
+
+      var res = await request({
+        method: 'DELETE',
+        url: getTestURL(`/api/contacts/${contact.id}`),
+        headers: {
+          'x-access-token': global.token,
+        },
+        json: true,
+      });
+
+      res.statusCode.should.be.eql(204);
+      contact = await Contact.findById(contact.id);
+      should.equal(contact, null);
+    });
+  });
 });
