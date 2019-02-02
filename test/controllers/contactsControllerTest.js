@@ -126,7 +126,7 @@ describe('Contacts Controller', () => {
     it('Should be able to search contacts', async () => {
       var res = await request({
         method: 'GET',
-        url: getTestURL(`/api/contacts?email=xyz@gmail.com`),
+        url: getTestURL(`/api/contacts`, { email: 'xyz@gmail.com' }),
         headers: {
           'x-access-token': global.token,
         },
