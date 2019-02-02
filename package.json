@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "nodemon ./bin/www",
     "dbmigrate": "sequelize db:migrate",
-    "start": "NODE_ENV=development npm install && npm run dbmigrate  && node ./bin/www",
+    "start": "NODE_ENV=production npm install && npm run dbmigrate  && node ./bin/www",
     "pretest": "NODE_ENV=test npm run db:migrate",
     "db:migrate": "babel-node ./test/scripts/migrateDb",
     "test": "node_modules/mocha/bin/mocha --timeout 20000"

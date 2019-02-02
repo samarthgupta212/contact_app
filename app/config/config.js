@@ -15,5 +15,9 @@ module.exports = {
     database: "contact_book_test",
     host: "127.0.0.1",
     dialect: "postgres"
+  },
+  production: {
+    use_env_variable: 'POSTGRES_DB_URL',
+    dialect: 'postgres'
   }
 };
