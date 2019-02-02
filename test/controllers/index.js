@@ -1,0 +1,2 @@
+require('./usersControllerTest');
+require('./contactsControllerTest');
